@@ -75,7 +75,7 @@ export const FloatingNav = ({
 
         {/* BOTÃO DOWNLOAD (Escondido no Mobile) */}
         <div className="hidden md:block">
-            <a href="#download">
+            <a href="/#bldr-download">
                 <Button 
                     size="sm" 
                     className="bg-[#FFD700] text-black font-bold hover:bg-yellow-500 rounded-full px-4 h-9 transition-transform hover:scale-105"

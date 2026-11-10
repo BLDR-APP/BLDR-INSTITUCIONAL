@@ -1,498 +1,479 @@
-import React from "react";
-import { Button } from "@/components/ui/button";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from "@/components/ui/card";
-import {
-  Smartphone, Zap, Target, Users, Star, Link, Check,
-  Brain, Utensils, LineChart, Footprints, Droplets,
-  Download, UserPlus, ClipboardList, Sparkles
-} from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { HavokSection } from "@/components/HavokSection";
-import StoreButtons from "@/components/StoreButtons";
+import { useState } from "react";
+import { ArrowUpRight, Trophy, Activity, Users, Sparkles, Route, Library, ChartNoAxesCombined, Smartphone, Play } from "lucide-react";
+import content from "@/content/home.json";
+import "./Home.css";
 
-// IMPORTS DOS EFEITOS ESPECIAIS
-import { Spotlight } from "@/components/ui/spotlight";
-import { BackgroundGradient } from "@/components/ui/background-gradient";
-import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+type ScreenName = keyof typeof content.screens;
+type Feature = keyof typeof content.features;
 
-const Index = () => {
-  const founders = [
-    {
-      name: "Pedro Menin",
-      role: "Sócio & Fundador",
-      description: "Visionário por trás do app, lidera a estratégia e a construção do futuro da plataforma fitness, conectando inovação e comunidade.",
-      image: "/PM.jpg"
-    },
-    {
-      name: "Pedro Lacerda",
-      role: "Sócio & Co-fundador", 
-      description: "Especialista em networking e expansão, responsável por fechar parcerias estratégicas com marcas, academias e players do mercado fitness.",
-      image: "/PL.jpg"
-    },
-    {
-      name: "Arthur Carvalho",
-      role: "Sócio & Co-fundador",
-      description: "Cuida da saúde financeira da empresa, estrutura modelos de monetização e prepara o terreno para investidores e crescimento sustentável.",
-      image: "/Carcs.png"
-    },
-    {
-      name: "João Luiz Rocha",
-      role: "Sócio & Co-fundador",
-      description: "Apaixonado por treino e academia, traz conhecimento técnico para garantir que o app seja referência em performance, saúde e bem-estar.",
-      image: "/JL.jpg"
-    }
-  ];
+function Screen({ name, eager = false }: { name: ScreenName; eager?: boolean }) {
+  const screen = content.screens[name];
+  return <img src={screen.src} alt={screen.alt} width={screen.width} height={screen.height}
+    loading={eager ? "eager" : "lazy"} decoding="async" />;
+}
 
-  const features = [
-    {
-      icon: <Target className="h-6 w-6" />,
-      title: "Treinos Personalizados",
-      description: "IA que cria treinos únicos baseados nos seus objetivos e histórico"
-    },
-    {
-      icon: <Zap className="h-6 w-6" />,
-      title: "Resultados Rápidos",
-      description: "Metodologia comprovada para acelerar seus resultados"
-    },
-    {
-      icon: <Users className="h-6 w-6" />,
-      title: "Comunidade Ativa",
-      description: "Conecte-se com outros atletas e compartilhe sua jornada"
-    },
-    {
-      icon: <Smartphone className="h-6 w-6" />,
-      title: "App Intuitivo",
-      description: "Interface simples e elegante para uma experiência premium"
-    },
-    {
-      icon: <Link className="h-6 w-6" />,
-      title: "Integrações",
-      description: "Estamos desenvolvendo integrações com os maiores players: Oura Ring, Whoop, Apple Watch, Garmin."
-    }
-  ];
-
-  const detailedFeatures = [
-    {
-      icon: <Brain className="h-8 w-8 text-[#FFD700]" />,
-      title: "IA & Chef Inteligente",
-      description: "Treinos baseados no seu TDEE ou modo 'Treino Livre'. Além disso, nossa IA gera receitas completas com macros calculados usando seus ingredientes ou tipos de refeição."
-    },
-    {
-      icon: <Droplets className="h-8 w-8 text-[#FFD700]" />,
-      title: "Nutrição Automática",
-      description: "Calculadora de calorias e macros automática ao registrar refeições. Acompanhe também sua ingestão diária de água de forma simples."
-    },
-    {
-      icon: <LineChart className="h-8 w-8 text-[#FFD700]" />,
-      title: "Dashboard de Performance",
-      description: "Gráficos de evolução corporal (Peso, Gordura, Músculo), Heatmap de constância de treino, aderência à dieta e diário de fotos (Antes/Depois)."
-    },
-    {
-      icon: <Footprints className="h-8 w-8 text-[#FFD700]" />,
-      title: "BLDR CLUB & Corrida",
-      description: "Experiência Premium: Gamificação com recompensas, Biblioteca Exclusiva, IA HAVOK e Modo Corrida com rastreamento via GPS."
-    }
-  ];
-
-  const plans = [
-    {
-      name: "Mensal",
-      price: "34,90",
-      period: "/mês",
-      description: "Comece sua jornada no BLDR CLUB.",
-      features: [
-        "Acesso à IA HAVOK e Chef IA",
-        "Modo Corrida (GPS Integrado)",
-        "Biblioteca de Treinos Exclusiva",
-        "Gamificação e Recompensas",
-        "Analytics Avançados & Fotos",
-        "Badge 'BLDR CLUB' no Perfil",
-      ],
-      highlight: false
-    },
-    {
-      name: "Anual",
-      price: "199,99",
-      period: "/ano",
-      description: "Economize mais de 50% no plano anual.",
-      subPrice: "Equivalente a R$ 16,66/mês",
-      features: [
-        "Todos os benefícios do Mensal",
-        "Melhor custo-benefício",
-      ],
-      highlight: true
-    }
-  ];
-
+export default function Index() {
+  const [feature, setFeature] = useState<Feature>("workout");
+  const featureCopy = content.features[feature];
+  const copy = content.copy;
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden font-sans">
-      <Navbar />
-      
-      {/* HERO SECTION */}
-      <section className="flex flex-col overflow-hidden bg-black relative pt-40 md:pt-40">
-        <Spotlight className="-top-40 left-0 md:left-60 md:-top-20" fill="white" />
-        
-        <ContainerScroll
-          titleComponent={
-            <>
-              <h1 className="text-4xl md:text-8xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-b from-neutral-50 to-neutral-400 bg-opacity-50 leading-tight">
-                Construa sua <br />
-                <span className="text-[#FFD700] drop-shadow-md">MELHOR VERSÃO</span>
-              </h1>
-              
-              <div className="flex flex-col items-center justify-center gap-6 mt-8 mb-12">
-                <p className="font-normal text-base md:text-xl text-neutral-300 max-w-2xl text-center mx-auto">
-                   O ecossistema definitivo para sua performance. Domine seus treinos, controle sua dieta e monitore sua evolução em um único lugar.
-                </p>
-                
-                {/* BOTÕES DAS LOJAS (COM BORDA ANIMADA) */}
-                <StoreButtons className="mt-4 px-4" />
-
-              </div>
-            </>
-          }
-        >
-          {/* MOCKUP IMAGE */}
-          <img
-            src="/Dashboard.png" 
-            alt="BLDR App Interface"
-            className="mx-auto rounded-2xl object-cover h-full w-full object-left-top draggable-false"
-            draggable={false}
-          />
-        </ContainerScroll>
-      </section>
-
-      <HavokSection />
-
-      {/* COMO FUNCIONA SECTION */}
-      <section className="py-20 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">
-              Como <span className="text-[#FFD700]">Funciona</span>?
-            </h2>
-            <p className="text-xl text-neutral-400">
-              Do download ao primeiro treino personalizado em minutos
-            </p>
-          </div>
-
-          <div className="relative">
-            {/* Linha conectora (visível apenas em desktop) */}
-            <div className="hidden lg:block absolute top-10 left-[calc(12.5%+1rem)] right-[calc(12.5%+1rem)] h-px bg-gradient-to-r from-transparent via-[#FFD700]/40 to-transparent" />
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
-              {[
-                {
-                  step: "01",
-                  icon: <Download className="w-6 h-6" />,
-                  title: "Baixe o App",
-                  description: "Disponível gratuitamente na App Store e Google Play.",
-                },
-                {
-                  step: "02",
-                  icon: <UserPlus className="w-6 h-6" />,
-                  title: "Crie sua Conta",
-                  description: "Cadastre-se com e-mail, Apple ID ou conta Google em segundos.",
-                },
-                {
-                  step: "03",
-                  icon: <ClipboardList className="w-6 h-6" />,
-                  title: "Faça o Onboarding",
-                  description: "Informe seus dados (peso, altura, objetivo e nível de atividade). O BLDR calcula seu TDEE e metas calóricas automaticamente.",
-                },
-                {
-                  step: "04",
-                  icon: <Sparkles className="w-6 h-6" />,
-                  title: "A IA Assume",
-                  description: "Com o BLDR CLUB, o HAVOK monta sua ficha de treinos e receitas personalizadas com base no seu perfil.",
-                },
-              ].map((item, index) => (
-                <div key={index} className="flex flex-col items-center text-center">
-                  <div className="relative mb-6">
-                    <div className="w-20 h-20 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-[#FFD700] shadow-[0_0_20px_rgba(255,215,0,0.1)]">
-                      {item.icon}
-                    </div>
-                    <span className="absolute -top-2 -right-2 bg-[#FFD700] text-black text-xs font-black w-6 h-6 rounded-full flex items-center justify-center leading-none">
-                      {item.step}
-                    </span>
-                  </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
-                  <p className="text-sm text-zinc-400 leading-relaxed">{item.description}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FEATURES SECTION */}
-      <section className="py-20 bg-[#0a0a0a]">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">
-              Por que escolher o <span className="text-[#FFD700]">BLDR</span>?
-            </h2>
-            <p className="text-xl text-neutral-400">
-              Tecnologia de ponta para revolucionar seus treinos
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center">
-            {features.map((feature, index) => (
-              <BackgroundGradient key={index} className="rounded-[22px] p-6 bg-zinc-900 h-full flex flex-col items-center text-center">
-                  <div className="mb-4 p-3 bg-[#FFD700] rounded-full w-fit text-black">
-                    {feature.icon}
-                  </div>
-                  <h3 className="text-xl font-bold text-white mt-2 mb-2">
-                    {feature.title}
-                  </h3>
-                  <p className="text-sm text-neutral-400">
-                    {feature.description}
-                  </p>
-              </BackgroundGradient>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SEÇÃO DETALHADA: Por dentro do App */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-                <h2 className="text-4xl font-bold mb-4 text-white">Por dentro do <span className="text-[#FFD700]">BLDR</span></h2>
-                <p className="text-xl text-neutral-400">
-                    Ferramentas profissionais simplificadas para você
-                </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                {detailedFeatures.map((item, index) => (
-                    <div key={index} className="flex flex-col md:flex-row gap-6 items-start p-6 rounded-2xl bg-zinc-900 border border-zinc-800 hover:border-[#FFD700]/50 transition-colors duration-300">
-                        <div className="flex-shrink-0 p-4 bg-zinc-800 rounded-xl">
-                            {item.icon}
-                        </div>
-                        <div>
-                            <h3 className="text-2xl font-bold mb-3 text-white">{item.title}</h3>
-                            <p className="text-zinc-400 leading-relaxed">
-                                {item.description}
-                            </p>
-                        </div>
-                    </div>
-                ))}
-            </div>
-        </div>
-      </section>
-
-      {/* FOUNDERS SECTION */}
-      <section className="py-20 bg-black">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">Conheça Nosso Time</h2>
-            <p className="text-xl text-neutral-400">
-              A equipe por trás da revolução fitness
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {founders.map((founder, index) => (
-              <Card key={index} className="bg-zinc-900 border-zinc-800 hover:border-[#FFD700]/50 transition-all duration-300 group hover:-translate-y-2">
-                <CardHeader className="text-center">
-                  <div className="mx-auto mb-4 relative">
-                    <img
-                      src={founder.image}
-                      alt={founder.name}
-                      className="w-24 h-24 rounded-full object-cover border-2 border-[#FFD700] group-hover:scale-110 transition-transform duration-300 grayscale group-hover:grayscale-0"
-                    />
-                    <div className="absolute -bottom-1 -right-1 bg-[#FFD700] p-1 rounded-full">
-                      <Star className="h-4 w-4 text-black" />
-                    </div>
-                  </div>
-                  <CardTitle className="text-lg text-white">{founder.name}</CardTitle>
-                  <CardDescription className="text-[#FFD700] font-semibold">
-                    {founder.role}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p className="text-center text-sm text-zinc-400">
-                    {founder.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PRICING SECTION */}
-      <section className="py-20 bg-[#0a0a0a] relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4 text-white">Seja <span className="text-[#FFD700]">BLDR CLUB</span></h2>
-            <p className="text-xl text-neutral-400">
-              Desbloqueie todo o seu potencial com o plano premium.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            {plans.map((plan, index) => (
-              <Card 
-                key={index} 
-                className={`flex flex-col relative ${
-                  plan.highlight 
-                    ? "bg-zinc-900 border-[#FFD700] shadow-[0_0_30px_rgba(255,215,0,0.15)] transform md:-translate-y-4" 
-                    : "bg-zinc-900 border-zinc-800 hover:border-[#FFD700]/30"
-                } transition-all duration-300`}
-              >
-                {plan.highlight && (
-                  <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                    <span className="bg-[#FFD700] text-black text-sm font-bold px-4 py-1 rounded-full">
-                      Melhor Opção
-                    </span>
-                  </div>
-                )}
-                <CardHeader className="text-center pb-8">
-                  <CardTitle className="text-2xl font-bold mb-2 text-white">{plan.name}</CardTitle>
-                  <div className="flex items-baseline justify-center text-white">
-                    <span className="text-sm font-medium text-zinc-400 mr-1">R$</span>
-                    <span className="text-5xl font-extrabold">{plan.price}</span>
-                    <span className="text-zinc-400">{plan.period}</span>
-                  </div>
-                  {plan.subPrice && (
-                    <p className="text-sm text-[#FFD700] font-medium mt-2">{plan.subPrice}</p>
-                  )}
-                  <CardDescription className="mt-4 text-base text-zinc-400">
-                    {plan.description}
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex-grow">
-                  <ul className="space-y-4">
-                    {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-zinc-300">
-                        <Check className="h-5 w-5 text-[#FFD700] mr-3 flex-shrink-0" />
-                        <span>{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </CardContent>
-                <CardFooter className="pt-8 flex flex-col gap-2">
-                  <a
-                    href="https://apps.apple.com/app/bldr/id6754264412"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                  >
-                    <Button
-                      className={`w-full ${
-                        plan.highlight
-                          ? "bg-[#FFD700] text-black font-bold hover:bg-yellow-500 hover:scale-105"
-                          : "bg-zinc-800 text-white hover:bg-zinc-700 hover:scale-105"
-                      } transition-all duration-300`}
-                      size="lg"
-                    >
-                      Baixar na App Store
-                    </Button>
-                  </a>
-                  <a
-                    href="https://play.google.com/store/apps/details?id=com.bldr_fitness.app&pcampaignid=web_share"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-full"
-                  >
-                    <Button
-                      variant="outline"
-                      className={`w-full border-zinc-700 ${
-                        plan.highlight
-                          ? "text-[#FFD700] border-[#FFD700]/40 hover:bg-[#FFD700]/10"
-                          : "text-zinc-300 hover:bg-zinc-800"
-                      } transition-all duration-300`}
-                      size="lg"
-                    >
-                      Baixar no Google Play
-                    </Button>
-                  </a>
-                </CardFooter>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ SECTION */}
-      <section className="py-20 bg-[#0a0a0a]">
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4 text-white">
-              Perguntas <span className="text-[#FFD700]">Frequentes</span>
-            </h2>
-            <p className="text-xl text-neutral-400">
-              Tire suas dúvidas antes de começar
-            </p>
-          </div>
-
-          <Accordion type="single" collapsible className="space-y-3">
-            <AccordionItem value="q1" className="bg-zinc-900 border border-zinc-800 rounded-xl px-6 data-[state=open]:border-[#FFD700]/40 transition-colors duration-300">
-              <AccordionTrigger className="text-white font-semibold text-left hover:no-underline py-5">
-                O app é gratuito?
-              </AccordionTrigger>
-              <AccordionContent className="text-zinc-400 pb-5 leading-relaxed">
-                O download é gratuito. Funcionalidades básicas são acessíveis sem custo, mas o acesso ao HAVOK IA, receitas personalizadas, modo corrida e outros recursos premium exigem o <span className="text-[#FFD700] font-semibold">BLDR CLUB</span> (plano Mensal ou Anual).
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="q2" className="bg-zinc-900 border border-zinc-800 rounded-xl px-6 data-[state=open]:border-[#FFD700]/40 transition-colors duration-300">
-              <AccordionTrigger className="text-white font-semibold text-left hover:no-underline py-5">
-                Funciona sem internet?
-              </AccordionTrigger>
-              <AccordionContent className="text-zinc-400 pb-5 leading-relaxed">
-                Algumas funcionalidades básicas funcionam offline, mas os recursos de IA — como a geração de treinos e receitas pelo HAVOK — exigem conexão com a internet.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="q3" className="bg-zinc-900 border border-zinc-800 rounded-xl px-6 data-[state=open]:border-[#FFD700]/40 transition-colors duration-300">
-              <AccordionTrigger className="text-white font-semibold text-left hover:no-underline py-5">
-                Posso cancelar quando quiser?
-              </AccordionTrigger>
-              <AccordionContent className="text-zinc-400 pb-5 leading-relaxed">
-                Sim. Usuários iOS podem cancelar a qualquer momento diretamente pela App Store, sem multa ou fidelidade. Para os demais, o cancelamento é feito entrando em contato pelo e-mail{" "}
-                <a href="mailto:contato@bldrapp.com.br" className="text-[#FFD700] hover:underline">
-                  contato@bldrapp.com.br
-                </a>.
-              </AccordionContent>
-            </AccordionItem>
-
-            <AccordionItem value="q4" className="bg-zinc-900 border border-zinc-800 rounded-xl px-6 data-[state=open]:border-[#FFD700]/40 transition-colors duration-300">
-              <AccordionTrigger className="text-white font-semibold text-left hover:no-underline py-5">
-                O HAVOK é realmente uma IA?
-              </AccordionTrigger>
-              <AccordionContent className="text-zinc-400 pb-5 leading-relaxed">
-                Sim. O HAVOK é um sistema de inteligência artificial integrado ao BLDR que analisa seu perfil, objetivos e histórico para gerar treinos e receitas únicos para você — não são planos genéricos.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </div>
-      </section>
-
-      {/* CTA SECTION - AGORA COM ID DOWNLOAD */}
-      <section id="download" className="py-20 relative overflow-hidden bg-black">
-        <Spotlight className="top-0 left-0 transform rotate-180 opacity-50" fill="#FFD700" />
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-white">
-            Pronto para <span className="text-[#FFD700]">CONSTRUIR</span> seu futuro?
-          </h2>
-          <p className="text-xl text-neutral-400 mb-8 max-w-2xl mx-auto">
-            Junte-se à revolução fitness e faça parte do clube.
-          </p>
-          
-          {/* BOTÕES DAS LOJAS NO RODAPÉ (COM BORDA ANIMADA) */}
-          <StoreButtons className="mt-4 max-w-md mx-auto px-4" />
-        </div>
-      </section>
-
-      <Footer />
+<div id="bldr-home">
+  <nav className="bn">
+    <a href="#bldr-top" aria-label="BLDR início" className="brand">
+      <span className="official-mark">
+        <img src={content.brand.logo.src} alt={content.brand.logo.alt} width={2000} height={2000} />
+      </span>
+      <span className="brand-sign">
+        {copy.construa_sua_melhor_versao}
+      </span>
+    </a>
+    <div className="navlinks">
+      <a href="#bldr-system">
+        {copy.o_aplicativo}
+      </a>
+      <a href="#bldr-havok">
+        {copy.havok}
+      </a>
+      <a href="#bldr-club">
+        {copy.club}
+      </a>
     </div>
+    <a className="navcta" href="#bldr-download">
+      {copy.baixar_o_app}
+    </a>
+  </nav>
+  <a className="skip-link" href="#main-content">
+    {copy.pular_para_o_conteudo}
+  </a>
+  <main id="main-content">
+    <section className="hero" id="bldr-top">
+      <div className="hero-copy">
+        <div className="eyebrow">
+          {copy.treino_nutricao_evolucao}
+        </div>
+        <h1>
+          {content.brand.headline.first}
+          <br />
+          <span>
+            {content.brand.headline.emphasis}
+          </span>
+        </h1>
+        <p>
+          {copy.treinos_nutricao_e_progresso_conectados_para}
+        </p>
+        <div className="actions">
+          <a className="goldbutton" href="#bldr-download">
+            {copy.comecar_gratuitamente}
+            <ArrowUpRight aria-hidden="true" />
+          </a>
+          <a className="quietlink" href="#bldr-system">
+            {copy.conhecer_o_aplicativo}
+          </a>
+        </div>
+        <div className="availability">
+          {copy.ios_e_android_voce_comeca_no}
+        </div>
+      </div>
+      <div className="hero-stage">
+        <div className="hero-orbit">
+        </div>
+        <figure className="hero-phone">
+          <Screen name="home" eager />
+        </figure>
+      </div>
+    </section>
+    <div className="manifesto-strip">
+      <span>
+        {copy.o_plano_e_seu}
+      </span>
+      <b>
+        {copy.separador}
+      </b>
+      <span>
+        {copy.a_constancia_e_sua}
+      </span>
+      <b>
+        {copy.separador}
+      </b>
+      <span>
+        {copy.a_evolucao_tambem}
+      </span>
+    </div>
+    <section className="section system" id="bldr-system">
+      <div className="sectionintro">
+        <div>
+          <div className="eyebrow">
+            {copy.sua_rotina_com_mais_clareza}
+          </div>
+          <h2>
+            {copy.saiba_o_que_fazer}
+            <br />
+            <span>
+              {copy.veja_o_que_mudou}
+            </span>
+          </h2>
+        </div>
+        <p>
+          {copy.planejamento_registro_e_historico_conectados_para}
+        </p>
+      </div>
+      <div className="explorer">
+        <div className="choices" aria-label="Explore os recursos do aplicativo">
+          <button type="button" className="choice" onClick={() => setFeature("workout" )} aria-pressed={feature === "workout"}>
+            <span>
+              {copy.texto_01_treinos}
+            </span>
+            <strong>
+              {copy.chegue_para_treinar_com_um_plano}
+            </strong>
+            <small>
+              {copy.organize_sua_semana_e_encontre_o}
+            </small>
+            <ArrowUpRight aria-hidden="true" />
+          </button>
+          <button type="button" className="choice" onClick={() => setFeature("nutrition" )} aria-pressed={feature === "nutrition"}>
+            <span>
+              {copy.texto_02_nutricao}
+            </span>
+            <strong>
+              {copy.entenda_como_foi_sua_alimentacao}
+            </strong>
+            <small>
+              {copy.acompanhe_refeicoes_calorias_macros_e_agua}
+            </small>
+            <ArrowUpRight aria-hidden="true" />
+          </button>
+          <button type="button" className="choice" onClick={() => setFeature("progress" )} aria-pressed={feature === "progress"}>
+            <span>
+              {copy.texto_03_progresso}
+            </span>
+            <strong>
+              {copy.compare_seu_desempenho_ao_longo_do}
+            </strong>
+            <small>
+              {copy.veja_volume_de_treino_recordes_e}
+            </small>
+            <ArrowUpRight aria-hidden="true" />
+          </button>
+        </div>
+        <div className="feature-detail" aria-live="polite">
+          <div className="detail-top">
+            <span id="detail-label">
+              {featureCopy.label}
+            </span>
+            <span>
+              {copy.bldr}
+            </span>
+          </div>
+          <div className="detail-crop">
+            <Screen name={feature} eager />
+          </div>
+          <div className="detail-caption" id="detail-caption">
+            {featureCopy.caption}
+          </div>
+        </div>
+      </div>
+    </section>
+    <section className="section levelsection">
+      <div className="profile-detail">
+        <div className="detail-top">
+          <span>
+            {copy.sua_jornada_ganha_forma}
+          </span>
+          <Trophy aria-hidden="true" />
+        </div>
+        <div className="profile-crop">
+          <Screen name="profile" />
+        </div>
+      </div>
+      <div>
+        <div className="eyebrow">
+          {copy.cada_dia_conta}
+        </div>
+        <h2>
+          {copy.performance}
+          <br />
+          <span>
+            {copy.e_um_jogo}
+          </span>
+        </h2>
+        <p>
+          {copy.treinos_registrados_viram_historia_niveis_conquistas}
+        </p>
+        <p>
+          {copy.voce_acompanha_o_caminho_que_ja}
+        </p>
+        <div className="signature-line">
+          {copy.construa_sua_melhor_versao}
+          <span>
+            {copy.um_dia_de_cada_vez}
+          </span>
+        </div>
+      </div>
+    </section>
+    <section className="section havoksection" id="bldr-havok">
+      <div>
+        <div className="eyebrow">
+          {copy.inteligencia_com_contexto}
+        </div>
+        <h2>
+          {copy.seus_dados}
+          <br />
+          {copy.uma_conversa}
+          <br />
+          <span>
+            {copy.havok_2}
+          </span>
+        </h2>
+        <p>
+          {copy.leve_suas_duvidas_sobre_treino_e}
+        </p>
+        <div className="example-question">
+          {copy.estou_pronto_para_treinar_pesado_hoje}
+        </div>
+        <p className="smalltext">
+          {copy.uma_pergunta_simples_pode_abrir_espaco}
+        </p>
+      </div>
+      <figure className="havok-focus">
+        <div className="havok-crop">
+          <Screen name="havok" />
+        </div>
+      </figure>
+    </section>
+    <section className="section movement">
+      <div className="sectionintro">
+        <div>
+          <div className="eyebrow">
+            {copy.sua_vida_em_movimento}
+          </div>
+          <h2>
+            {copy.alem_da_academia}
+            <br />
+            <span>
+              {copy.ao_lado_de_outras_pessoas}
+            </span>
+          </h2>
+        </div>
+      </div>
+      <div className="movement-grid">
+        <article>
+          <div className="movement-copy">
+            <Activity aria-hidden="true" />
+            <h3>
+              {copy.seu_esporte_tambem_faz_parte}
+            </h3>
+            <p>
+              {copy.encontre_corrida_caminhada_ciclismo_timers_e}
+            </p>
+          </div>
+          <div className="sports-crop">
+            <Screen name="sports" />
+          </div>
+        </article>
+        <article>
+          <div className="movement-copy">
+            <Users aria-hidden="true" />
+            <h3>
+              {copy.compartilhe_o_que_voce_constroi}
+            </h3>
+            <p>
+              {copy.publique_treinos_e_avancos_acompanhe_outras}
+            </p>
+          </div>
+          <div className="community-crop">
+            <Screen name="community" />
+          </div>
+        </article>
+      </div>
+    </section>
+    <section className="section club" id="bldr-club">
+      <div className="club-intro">
+        <div className="eyebrow">
+          {copy.bldr_club}
+        </div>
+        <h2>
+          {copy.mais_recursos}
+          <br />
+          <span>
+            {copy.mais_caminhos_para_evoluir}
+          </span>
+        </h2>
+        <p>
+          {copy.amplie_sua_experiencia_com_inteligencia_ferramentas}
+        </p>
+        <a className="goldbutton" href="#bldr-download">
+          {copy.explorar_o_club_no_app}
+          <ArrowUpRight aria-hidden="true" />
+        </a>
+        <small>
+          {copy.consulte_os_planos_e_os_recursos}
+        </small>
+      </div>
+      <div className="club-benefits">
+        <div>
+          <Sparkles aria-hidden="true" />
+          <span>
+            <strong>
+              {copy.havok_e_chef_ia}
+            </strong>
+            <small>
+              {copy.apoio_para_explorar_treinos_e_ideias}
+            </small>
+          </span>
+        </div>
+        <div>
+          <Route aria-hidden="true" />
+          <span>
+            <strong>
+              {copy.esportes_e_corrida}
+            </strong>
+            <small>
+              {copy.mais_ferramentas_para_acompanhar_suas_atividades}
+            </small>
+          </span>
+        </div>
+        <div>
+          <Library aria-hidden="true" />
+          <span>
+            <strong>
+              {copy.biblioteca_de_treinos}
+            </strong>
+            <small>
+              {copy.mais_opcoes_para_planejar_a_sua}
+            </small>
+          </span>
+        </div>
+        <div>
+          <ChartNoAxesCombined aria-hidden="true" />
+          <span>
+            <strong>
+              {copy.analises_da_sua_evolucao}
+            </strong>
+            <small>
+              {copy.mais_detalhes_para_acompanhar_o_caminho}
+            </small>
+          </span>
+        </div>
+      </div>
+    </section>
+    <section className="section faq">
+      <div>
+        <div className="eyebrow">
+          {copy.antes_do_primeiro_passo}
+        </div>
+        <h2>
+          {copy.ficou_alguma}
+          <br />
+          <span>
+            {copy.duvida}
+          </span>
+        </h2>
+      </div>
+      <div className="questions">
+        <details open>
+          <summary>
+            {copy.preciso_assinar_para_comecar}
+          </summary>
+          <p>
+            {copy.voce_pode_comecar_gratuitamente_o_bldr}
+          </p>
+        </details>
+        <details>
+          <summary>
+            {copy.o_bldr_e_so_para_quem}
+          </summary>
+          <p>
+            {copy.o_aplicativo_reune_treinos_nutricao_progresso}
+          </p>
+        </details>
+        <details>
+          <summary>
+            {copy.o_havok_substitui_acompanhamento_profissional}
+          </summary>
+          <p>
+            {copy.nao_havok_e_uma_inteligencia_artificial}
+          </p>
+        </details>
+        <details>
+          <summary>
+            {copy.onde_posso_baixar_o_aplicativo}
+          </summary>
+          <p>
+            {copy.o_bldr_esta_disponivel_para_ios}
+          </p>
+        </details>
+      </div>
+    </section>
+    <section className="section closing" id="bldr-download">
+      <div className="eyebrow">
+        {copy.o_proximo_passo_e_seu}
+      </div>
+      <h2>
+        {copy.comece_com_um_dia}
+        <br />
+        <span>
+          {copy.construa_a_sua_evolucao}
+        </span>
+      </h2>
+      <p>
+        {copy.seu_treino_sua_rotina_sua_proxima}
+      </p>
+      <div className="actions">
+        <a className="store" href={content.stores.apple} target="_blank" rel="noopener noreferrer">
+          <Smartphone aria-hidden="true" />
+          <span>
+            <small>
+              {copy.baixar_na}
+            </small>
+            {copy.app_store}
+          </span>
+        </a>
+        <a className="store" href={content.stores.google} target="_blank" rel="noopener noreferrer">
+          <Play aria-hidden="true" />
+          <span>
+            <small>
+              {copy.disponivel_no}
+            </small>
+            {copy.google_play}
+          </span>
+        </a>
+      </div>
+      <div className="closing-sign">
+        {copy.bldr_construa_sua_melhor_versao}
+      </div>
+    </section>
+  </main>
+  <footer>
+    <a className="brand" href="#bldr-top">
+      <span className="official-mark">
+        <img src={content.brand.logo.src} alt={content.brand.logo.alt} width={2000} height={2000} />
+      </span>
+      <span className="brand-sign">
+        {copy.construa_sua_melhor_versao}
+      </span>
+    </a>
+    <span>
+      © {new Date().getFullYear()} BLDR · CNPJ: 62.211.700/0001-82
+    </span>
+    <div>
+      <a href="/sobre">
+        {copy.sobre_o_bldr}
+      </a>
+      <a href="/seguranca">
+        {copy.seguranca}
+      </a>
+      <a href="/termos">
+        {copy.termos}
+      </a>
+      <a href="/privacidade">
+        {copy.privacidade}
+      </a>
+      <a href="/contato">
+        {copy.contato}
+      </a>
+    </div>
+  </footer>
+</div>
   );
-};
-
-export default Index;
+}

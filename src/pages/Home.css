@@ -1,0 +1,841 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
+#bldr-home {
+  --gold:#d4af37;
+  --bg:#070808;
+  --panel:#101211;
+  --text:#f3f1e8;
+  --sub:#a6aaa1;
+  --line:#292c26;
+  color:var(--text);
+  background:var(--bg);
+  font:14px/1.7 Inter,Arial,sans-serif;
+  overflow:hidden;
+  border-radius:10px
+}
+#bldr-home * {
+  box-sizing:border-box
+}
+#bldr-home [hidden] {
+  display:none!important
+}
+#bldr-home a {
+  color:inherit;
+  text-decoration:none
+}
+#bldr-home button {
+  font:inherit
+}
+#bldr-home figure,#bldr-home h1,#bldr-home h2,#bldr-home h3,#bldr-home p {
+  margin:0
+}
+#bldr-home img {
+  display:block;
+  width:100%;
+  height:auto
+}
+#bldr-home svg {
+  width:20px;
+  height:20px;
+  flex-shrink:0
+}
+#bldr-home p {
+  color:var(--sub);
+  max-width:390px
+}
+#bldr-home h1,#bldr-home h2 {
+  font-family:'Barlow Condensed',Impact,sans-serif;
+  font-weight:600;
+  line-height:1.02;
+  letter-spacing:-.02em
+}
+#bldr-home h1 {
+  font-size:clamp(64px,8.5vw,98px);
+  text-transform:uppercase
+}
+#bldr-home h2 {
+  font-size:clamp(38px,5.3vw,62px)
+}
+#bldr-home h1 span,#bldr-home h2 span {
+  color:var(--gold)
+}
+#bldr-home h3 {
+  font-size:19px;
+  line-height:1.35
+}
+#bldr-home .bn {
+  margin:0 6%;
+  padding:23px 0;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  border-bottom:1px solid var(--line)
+}
+#bldr-home .brand {
+  display:flex;
+  align-items:center;
+  gap:15px
+}
+#bldr-home .brand-sign {
+  font-size:9px;
+  letter-spacing:2px;
+  color:var(--gold)
+}
+#bldr-home .official-mark {
+  position:relative;
+  overflow:hidden;
+  width:44px;
+  height:44px;
+  display:block;
+  background:#000;
+  flex-shrink:0
+}
+#bldr-home .official-mark img {
+  position:absolute;
+  width:328%;
+  max-width:none;
+  left:-116%;
+  top:-111.5%
+}
+#bldr-home .navlinks {
+  display:flex;
+  gap:25px;
+  font-size:11px;
+  color:var(--sub)
+}
+#bldr-home .navcta {
+  border:1px solid #665a35;
+  border-radius:5px;
+  padding:9px 14px;
+  font-size:11px
+}
+#bldr-home .hero {
+  padding:55px 6% 65px;
+  display:grid;
+  grid-template-columns:1.15fr 1fr;
+  align-items:center;
+  gap:20px;
+  background:radial-gradient(ellipse at 77% 45%,#30281a55,transparent 55%)
+}
+#bldr-home .eyebrow {
+  color:var(--gold);
+  font-size:10px;
+  letter-spacing:2px;
+  font-weight:500;
+  margin-bottom:22px
+}
+#bldr-home .hero-copy p {
+  margin-top:26px;
+  font-size:14px;
+  max-width:350px
+}
+#bldr-home .actions {
+  display:flex;
+  align-items:center;
+  flex-wrap:wrap;
+  gap:20px;
+  margin-top:28px
+}
+#bldr-home .goldbutton {
+  background:var(--gold);
+  color:#15150c;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:14px;
+  padding:14px 18px;
+  border-radius:5px;
+  font-size:12px;
+  font-weight:600
+}
+#bldr-home .goldbutton svg {
+  width:17px;
+  height:17px
+}
+#bldr-home .quietlink {
+  font-size:11px;
+  color:#c5c6bd
+}
+#bldr-home .availability {
+  font-size:9px;
+  letter-spacing:1px;
+  color:var(--sub);
+  margin-top:24px
+}
+#bldr-home .hero-stage {
+  position:relative;
+  min-height:570px;
+  display:flex;
+  justify-content:center;
+  align-items:center
+}
+#bldr-home .hero-phone {
+  position:relative;
+  width:244px;
+  transform:rotate(5deg);
+  z-index:1
+}
+#bldr-home .hero-phone img {
+  border:4px solid #36372e;
+  border-radius:36px;
+  box-shadow:0 30px 60px #0009
+}
+#bldr-home .hero-orbit {
+  position:absolute;
+  width:360px;
+  height:360px;
+  border:1px solid #d4af3720;
+  border-radius:50%
+}
+#bldr-home .hero-note {
+  position:absolute;
+  left:-10px;
+  bottom:72px;
+  z-index:2;
+  background:#171a14;
+  border:1px solid #65552d;
+  padding:15px 20px;
+  border-radius:8px;
+  box-shadow:0 12px 40px #0008
+}
+#bldr-home .hero-note span {
+  display:block;
+  color:var(--gold);
+  font-size:8px;
+  letter-spacing:1.5px
+}
+#bldr-home .hero-note strong {
+  display:block;
+  font-size:15px;
+  margin:3px 0
+}
+#bldr-home .hero-note small {
+  font-size:10px;
+  color:var(--sub)
+}
+#bldr-home .manifesto-strip {
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:20px 6%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  font:600 18px 'Barlow Condensed';
+  letter-spacing:1.5px
+}
+#bldr-home .manifesto-strip b {
+  color:var(--gold)
+}
+#bldr-home .section {
+  padding:70px 6%
+}
+#bldr-home .sectionintro {
+  display:flex;
+  align-items:flex-end;
+  justify-content:space-between;
+  gap:40px;
+  margin-bottom:35px
+}
+#bldr-home .sectionintro>p {
+  max-width:250px;
+  font-size:12px
+}
+#bldr-home .explorer {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:35px;
+  align-items:center
+}
+#bldr-home .choice {
+  display:block;
+  position:relative;
+  width:100%;
+  padding:22px 35px 22px 18px;
+  text-align:left;
+  color:var(--text);
+  background:transparent;
+  border:0;
+  border-left:2px solid var(--line)
+}
+#bldr-home .choice+button {
+  border-top:1px solid var(--line)
+}
+#bldr-home .choice span {
+  color:var(--sub);
+  font-size:9px;
+  letter-spacing:1.5px
+}
+#bldr-home .choice strong {
+  display:block;
+  font-size:16px;
+  font-weight:500;
+  line-height:1.4;
+  margin:8px 0
+}
+#bldr-home .choice small {
+  display:block;
+  font-size:12px;
+  line-height:1.7;
+  color:var(--sub)
+}
+#bldr-home .choice svg {
+  position:absolute;
+  right:10px;
+  top:26px;
+  width:15px;
+  height:15px;
+  color:var(--sub)
+}
+#bldr-home .choice[aria-pressed=true] {
+  background:linear-gradient(90deg,#d4af3710,transparent);
+  border-left-color:var(--gold)
+}
+#bldr-home .choice[aria-pressed=true] span,#bldr-home .choice[aria-pressed=true] svg {
+  color:var(--gold)
+}
+#bldr-home .feature-detail {
+  min-width:0;
+  background:#0c0e0c;
+  border:1px solid #3e3d2e;
+  border-radius:14px;
+  overflow:hidden
+}
+#bldr-home .detail-top {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:18px 20px;
+  color:var(--gold);
+  font-size:9px;
+  letter-spacing:1px;
+  border-bottom:1px solid var(--line)
+}
+#bldr-home .detail-crop {
+  height:360px;
+  overflow:hidden;
+  background:#080908
+}
+#bldr-home .detail-crop img {
+  transform:translateY(-11%)
+}
+#bldr-home .detail-caption {
+  padding:15px 20px;
+  font-size:11px;
+  color:var(--sub);
+  border-top:1px solid var(--line)
+}
+#bldr-home .levelsection,#bldr-home .havoksection {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:55px;
+  align-items:center;
+  border-top:1px solid var(--line)
+}
+#bldr-home .levelsection p,#bldr-home .havoksection p {
+  font-size:13px;
+  margin-top:22px
+}
+#bldr-home .profile-detail {
+  background:#1e1e1e;
+  border:1px solid #444235;
+  border-radius:14px;
+  overflow:hidden
+}
+#bldr-home .profile-crop {
+  height:300px;
+  overflow:hidden
+}
+#bldr-home .profile-crop img {
+  transform:translateY(-59%)
+}
+#bldr-home .signature-line {
+  margin-top:28px;
+  color:var(--gold);
+  font-size:12px;
+  letter-spacing:2px;
+  border-left:2px solid var(--gold);
+  padding-left:15px
+}
+#bldr-home .signature-line span {
+  display:block;
+  color:var(--sub);
+  font-size:11px;
+  letter-spacing:0;
+  margin-top:5px
+}
+#bldr-home .example-question {
+  margin-top:24px;
+  border-left:2px solid var(--gold);
+  padding-left:14px;
+  font-size:17px;
+  line-height:1.5;
+  max-width:300px
+}
+#bldr-home .havoksection .smalltext {
+  font-size:11px
+}
+#bldr-home .havok-focus {
+  overflow:hidden;
+  border:1px solid #5d502c;
+  border-radius:22px;
+  transform:rotate(2deg);
+  background:#070807
+}
+#bldr-home .havok-crop {
+  height:480px;
+  overflow:hidden
+}
+#bldr-home .havok-crop img {
+  transform:translateY(-9%)
+}
+#bldr-home .movement {
+  border-top:1px solid var(--line)
+}
+#bldr-home .movement-grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px
+}
+#bldr-home .movement-grid article {
+  overflow:hidden;
+  background:var(--panel);
+  border:1px solid var(--line);
+  border-radius:12px;
+  min-width:0
+}
+#bldr-home .movement-copy {
+  padding:26px
+}
+#bldr-home .movement-copy svg {
+  color:var(--gold);
+  margin-bottom:15px
+}
+#bldr-home .movement-copy p {
+  font-size:12px;
+  margin-top:13px
+}
+#bldr-home .sports-crop,#bldr-home .community-crop {
+  height:260px;
+  overflow:hidden;
+  margin:0 18px
+}
+#bldr-home .sports-crop img {
+  transform:translateY(-17%)
+}
+#bldr-home .community-crop img {
+  transform:translateY(-12%)
+}
+#bldr-home .club {
+  margin:0 6%;
+  padding:40px;
+  display:grid;
+  grid-template-columns:1.1fr 1fr;
+  gap:45px;
+  border:1px solid #736032;
+  border-radius:12px;
+  background:radial-gradient(ellipse at 0 0,#3b311b,#12140f 75%)
+}
+#bldr-home .club h2 {
+  font-size:50px
+}
+#bldr-home .club p {
+  font-size:12px;
+  margin-top:20px
+}
+#bldr-home .club .goldbutton {
+  margin-top:25px
+}
+#bldr-home .club-intro>small {
+  display:block;
+  color:var(--sub);
+  font-size:9px;
+  margin-top:12px
+}
+#bldr-home .club-benefits>div {
+  display:flex;
+  gap:15px;
+  padding:20px 0;
+  border-bottom:1px solid #3c3b2b
+}
+#bldr-home .club-benefits svg {
+  color:var(--gold)
+}
+#bldr-home .club-benefits strong {
+  display:block;
+  font-size:13px;
+  font-weight:500
+}
+#bldr-home .club-benefits small {
+  display:block;
+  color:var(--sub);
+  font-size:11px;
+  line-height:1.7;
+  margin-top:5px
+}
+#bldr-home .faq {
+  display:grid;
+  grid-template-columns:.8fr 1.2fr;
+  gap:45px
+}
+#bldr-home details {
+  border-bottom:1px solid var(--line);
+  padding:18px 0
+}
+#bldr-home summary {
+  font-size:13px;
+  list-style:none;
+  position:relative;
+  padding-right:25px
+}
+#bldr-home summary:after {
+  content:'+';
+  position:absolute;
+  right:0;
+  color:var(--gold)
+}
+#bldr-home details[open] summary:after {
+  content:'−'
+}
+#bldr-home details p {
+  font-size:12px;
+  margin-top:13px
+}
+#bldr-home .closing {
+  text-align:center;
+  border-top:1px solid var(--line);
+  background:radial-gradient(ellipse at 50% 100%,#3b301b55,transparent 65%)
+}
+#bldr-home .closing h2 {
+  font-size:clamp(44px,6vw,72px)
+}
+#bldr-home .closing p {
+  margin:22px auto 0;
+  font-size:13px
+}
+#bldr-home .closing .actions {
+  justify-content:center
+}
+#bldr-home .store {
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-align:left;
+  background:#151713;
+  border:1px solid #414335;
+  border-radius:7px;
+  padding:10px 20px;
+  font-size:16px
+}
+#bldr-home .store small {
+  display:block;
+  font-size:8px;
+  letter-spacing:1px;
+  color:var(--sub)
+}
+#bldr-home .closing-sign {
+  margin-top:35px;
+  font-size:10px;
+  letter-spacing:3px;
+  color:var(--gold)
+}
+#bldr-home footer {
+  padding:25px 6%;
+  border-top:1px solid var(--line);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:25px;
+  font-size:10px;
+  color:var(--sub)
+}
+#bldr-home footer>div {
+  display:flex;
+  gap:20px
+}
+#bldr-home a:hover {
+  filter:brightness(1.18)
+}
+@media(max-width:700px) {
+  #bldr-home .navlinks {
+    display:none
+  }
+  #bldr-home .brand-sign {
+    font-size:8px;
+    letter-spacing:1px
+  }
+  #bldr-home .bn {
+    margin:0 5%
+  }
+  #bldr-home .hero {
+    grid-template-columns:1fr;
+    padding:40px 6%
+  }
+  #bldr-home h1 {
+    font-size:74px
+  }
+  #bldr-home .hero-stage {
+    min-height:590px
+  }
+  #bldr-home .hero-note {
+    left:0;
+    bottom:60px
+  }
+  #bldr-home .manifesto-strip {
+    font-size:13px;
+    letter-spacing:.5px;
+    flex-wrap:wrap;
+    justify-content:center
+  }
+  #bldr-home .section {
+    padding:45px 6%
+  }
+  #bldr-home .sectionintro {
+    display:block
+  }
+  #bldr-home .sectionintro>p {
+    margin-top:20px;
+    max-width:100%
+  }
+  #bldr-home .explorer,#bldr-home .levelsection,#bldr-home .havoksection,#bldr-home .movement-grid,#bldr-home .club,#bldr-home .faq {
+    grid-template-columns:1fr;
+    gap:30px
+  }
+  #bldr-home .choice {
+    padding:18px 35px 18px 15px
+  }
+  #bldr-home .detail-crop {
+    height:310px
+  }
+  #bldr-home .levelsection>div:last-child {
+    grid-row:1
+  }
+  #bldr-home .profile-crop {
+    height:270px
+  }
+  #bldr-home .havok-crop {
+    height:420px
+  }
+  #bldr-home .club {
+    padding:28px 22px;
+    margin:0 5%
+  }
+  #bldr-home .club h2 {
+    font-size:44px
+  }
+  #bldr-home footer {
+    flex-wrap:wrap
+  }
+  #bldr-home .hero-orbit {
+    width:280px;
+    height:280px
+  }
+  #bldr-home .profile-crop img {
+    transform:translateY(-56%)
+  }
+  #bldr-home .community-crop {
+    height:240px
+  }
+}
+@media(max-width:370px) {
+  #bldr-home h1 {
+    font-size:63px
+  }
+  #bldr-home .brand-sign {
+    display:none
+  }
+  #bldr-home .profile-crop img {
+    transform:translateY(-55%)
+  }
+  #bldr-home .profile-crop {
+    height:250px
+  }
+  #bldr-home .havok-crop {
+    height:365px
+  }
+}
+#bldr-home h1 {
+  font-size:clamp(58px,7.4vw,88px)
+}
+#bldr-home .havok-crop img {
+  width:360px;
+  max-width:100%;
+  margin:auto;
+  transform:translateY(-12%)
+}
+@media(max-width:700px) {
+  #bldr-home h1 {
+    font-size:clamp(53px,10vw,74px)
+  }
+}
+#bldr-home .hero-phone {
+  transform:none;
+  width:270px;
+  max-width:100%
+}
+#bldr-home .hero-phone img {
+  border-radius:36px
+}
+#bldr-home .hero-stage {
+  min-height:620px
+}
+#bldr-home .brand-sign {
+  font-size:9px;
+  letter-spacing:1px;
+  max-width:150px;
+  line-height:1.5
+}
+#bldr-home .feature-detail {
+  width:100%;
+  max-width:350px;
+  margin:auto;
+  background:#0c0e0c
+}
+#bldr-home .detail-crop,#bldr-home .profile-crop,#bldr-home .havok-crop,#bldr-home .sports-crop,#bldr-home .community-crop {
+  height:auto;
+  overflow:visible;
+  margin:0 auto;
+  width:100%;
+  max-width:290px
+}
+#bldr-home .detail-crop img,#bldr-home .profile-crop img,#bldr-home .havok-crop img,#bldr-home .sports-crop img,#bldr-home .community-crop img {
+  display:block;
+  width:100%;
+  max-width:100%;
+  height:auto;
+  transform:none;
+  margin:0;
+  object-fit:contain;
+  border-radius:24px
+}
+#bldr-home .profile-detail {
+  max-width:330px;
+  width:100%;
+  margin:auto;
+  background:#1e1e1e
+}
+#bldr-home .profile-crop {
+  max-width:300px
+}
+#bldr-home .havok-focus {
+  max-width:300px;
+  width:100%;
+  margin:auto;
+  transform:none;
+  overflow:visible;
+  border:0;
+  background:transparent
+}
+#bldr-home .havok-crop {
+  max-width:300px
+}
+#bldr-home .detail-top {
+  font-size:9px
+}
+#bldr-home .detail-caption {
+  text-align:center
+}
+#bldr-home .movement-grid article {
+  display:flex;
+  flex-direction:column;
+  padding-bottom:25px
+}
+#bldr-home .movement-copy {
+  min-height:195px
+}
+#bldr-home .sports-crop,#bldr-home .community-crop {
+  margin-top:auto;
+  max-width:270px;
+  width:calc(100% - 36px)
+}
+#bldr-home .signature-line {
+  font-size:12px;
+  letter-spacing:.5px
+}
+@media(max-width:700px) {
+  #bldr-home .hero-stage {
+    min-height:0;
+    padding:20px 0
+  }
+  #bldr-home .hero-phone {
+    width:270px
+  }
+  #bldr-home .hero-orbit {
+    display:none
+  }
+  #bldr-home .brand-sign {
+    display:none
+  }
+  #bldr-home h1 {
+    font-size:clamp(51px,9vw,72px)
+  }
+  #bldr-home .profile-detail,#bldr-home .feature-detail {
+    max-width:330px
+  }
+  #bldr-home .movement-copy {
+    min-height:0
+  }
+  #bldr-home .profile-crop,#bldr-home .havok-crop,#bldr-home .detail-crop,#bldr-home .sports-crop,#bldr-home .community-crop {
+    height:auto;
+    overflow:visible
+  }
+  #bldr-home .profile-crop img,#bldr-home .havok-crop img {
+    transform:none
+  }
+}
+/* Production layout: use the full page while keeping readable content width. */
+#bldr-home {
+  border-radius: 0;
+  max-width: 1440px;
+  margin-inline: auto;
+  min-height: 100vh;
+}
+#bldr-home .skip-link {
+  position:absolute;
+  top:0;
+  left:1rem;
+  transform:translateY(-120%);
+  z-index:20;
+  background:var(--gold);
+  color:#111;
+  padding:12px;
+}
+#bldr-home .skip-link:focus {
+  transform:none;
+}
+#bldr-home :focus-visible {
+  outline:2px solid var(--gold);
+  outline-offset:5px;
+}
+#bldr-home .choice, #bldr-home summary {
+  cursor:pointer;
+}
+#bldr-home .navlinks a, #bldr-home .navcta, #bldr-home .quietlink {
+  display:inline-flex;
+  min-height:44px;
+  align-items:center;
+}
+#bldr-home footer > div {
+  flex-wrap:wrap;
+}
+#bldr-home .brand-sign {
+  color:#d4af37;
+}
+#bldr-home img {
+  object-fit:contain;
+}
+@media (max-width:700px) {
+  #bldr-home .brand-sign {
+    display:none;
+  }
+  #bldr-home .sectionintro {
+    gap:20px;
+  }
+}
+@media (prefers-reduced-motion:reduce) {
+  #bldr-home *, #bldr-home *::before, #bldr-home *::after {
+    animation:none!important;
+    transition:none!important;
+    scroll-behavior:auto!important;
+  }
+}
