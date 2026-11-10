@@ -172,6 +172,21 @@
     "seguranca": "Segurança",
     "termos": "Termos",
     "privacidade": "Privacidade",
-    "contato": "Contato ↗"
-  }
+    "contato": "Contato ↗",
+    "conheca_o_bldr": "Conheça o BLDR"
+  },
+  "heroShowcase": [
+    {
+      "screen": "workout",
+      "emphasis": false
+    },
+    {
+      "screen": "home",
+      "emphasis": true
+    },
+    {
+      "screen": "progress",
+      "emphasis": false
+    }
+  ]
 }

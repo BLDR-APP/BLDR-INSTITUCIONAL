@@ -59,6 +59,7 @@ Abra `src/content/home.json`:
 - `screens`: imagens, descrições acessíveis e dimensões.
 - `stores`: destinos da App Store e Google Play.
 - `features`: título e legenda do painel alternável de Treinos/Nutrição/Progresso.
+- `heroShowcase`: telas da composição de abertura, na ordem em que aparecem. `screen` usa uma chave de `screens`; `emphasis: true` identifica a tela central. No celular, apenas a tela principal aparece nessa composição, para preservar seu tamanho. As outras telas continuam disponíveis nas seções abaixo.
 - `copy`: demais textos da home, identificados por nomes baseados no conteúdo.
 
 Mantenha a sintaxe JSON: aspas duplas e vírgulas entre campos, sem vírgula depois do último campo. Os textos são renderizados como texto comum, sem HTML.
