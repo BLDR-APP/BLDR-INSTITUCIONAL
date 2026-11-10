@@ -46,40 +46,32 @@ export default function Index() {
     {copy.pular_para_o_conteudo}
   </a>
   <main id="main-content">
-    <section className="hero" id="bldr-top">
+    <section className="hero hero-impact" id="bldr-top">
       <div className="hero-copy">
-        <div className="eyebrow">
-          {copy.treino_nutricao_evolucao}
-        </div>
+        <div className="eyebrow">{copy.treino_nutricao_evolucao}</div>
         <h1>
-          {content.brand.headline.first}
-          <br />
-          <span>
-            {content.brand.headline.emphasis}
-          </span>
+          {content.brand.headline.first}<br />
+          <span>{content.brand.headline.emphasis}</span>
         </h1>
-        <p>
-          {copy.treinos_nutricao_e_progresso_conectados_para}
-        </p>
-        <div className="actions">
-          <a className="goldbutton" href="#bldr-download">
-            {copy.comecar_gratuitamente}
-            <ArrowUpRight aria-hidden="true" />
+        <p>{copy.treinos_nutricao_e_progresso_conectados_para}</p>
+        <div className="actions hero-stores">
+          <a className="store" href={content.stores.apple} target="_blank" rel="noopener noreferrer">
+            <Smartphone aria-hidden="true" />
+            <span><small>{copy.baixar_na}</small>{copy.app_store}</span>
           </a>
-          <a className="quietlink" href="#bldr-system">
-            {copy.conhecer_o_aplicativo}
+          <a className="store" href={content.stores.google} target="_blank" rel="noopener noreferrer">
+            <Play aria-hidden="true" />
+            <span><small>{copy.disponivel_no}</small>{copy.google_play}</span>
           </a>
         </div>
-        <div className="availability">
-          {copy.ios_e_android_voce_comeca_no}
-        </div>
+        <a className="hero-explore" href="#bldr-system">{copy.conheca_o_bldr} <span aria-hidden="true">↓</span></a>
       </div>
-      <div className="hero-stage">
-        <div className="hero-orbit">
-        </div>
-        <figure className="hero-phone">
-          <Screen name="home" eager />
-        </figure>
+      <div className="hero-showcase" aria-label="Telas completas do aplicativo BLDR">
+        {content.heroShowcase.map(({ screen, emphasis }) => (
+          <figure key={screen} className={emphasis ? "showcase-main" : "showcase-side"}>
+            <Screen name={screen as ScreenName} eager />
+          </figure>
+        ))}
       </div>
     </section>
     <div className="manifesto-strip">
@@ -157,14 +149,7 @@ export default function Index() {
           </button>
         </div>
         <div className="feature-detail" aria-live="polite">
-          <div className="detail-top">
-            <span id="detail-label">
-              {featureCopy.label}
-            </span>
-            <span>
-              {copy.bldr}
-            </span>
-          </div>
+          <span id="detail-label" className="screen-label">{featureCopy.label}</span>
           <div className="detail-crop">
             <Screen name={feature} eager />
           </div>
