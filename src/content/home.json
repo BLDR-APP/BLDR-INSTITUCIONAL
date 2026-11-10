@@ -1,0 +1,177 @@
+{
+  "brand": {
+    "logo": {
+      "src": "/rebranding/logo.png",
+      "alt": "BLDR"
+    },
+    "slogan": "Construa sua melhor versão",
+    "headline": {
+      "first": "Construa sua",
+      "emphasis": "melhor versão."
+    }
+  },
+  "stores": {
+    "apple": "https://apps.apple.com/app/bldr/id6754264412",
+    "google": "https://play.google.com/store/apps/details?id=com.bldr_fitness.app"
+  },
+  "screens": {
+    "home": {
+      "src": "/rebranding/screens/home.jpg",
+      "alt": "Home do BLDR com treino do dia, nível e resumo da rotina",
+      "width": 440,
+      "height": 956
+    },
+    "workout": {
+      "src": "/rebranding/screens/workout.jpg",
+      "alt": "Treinos do BLDR com planejamento semanal e lista de treinos",
+      "width": 440,
+      "height": 956
+    },
+    "nutrition": {
+      "src": "/rebranding/screens/nutrition.jpg",
+      "alt": "Nutrição do BLDR com calorias, macros, hidratação e refeições",
+      "width": 440,
+      "height": 956
+    },
+    "progress": {
+      "src": "/rebranding/screens/progress.jpg",
+      "alt": "Progresso do BLDR com volume de treino, recordes e consistência",
+      "width": 440,
+      "height": 956
+    },
+    "profile": {
+      "src": "/rebranding/screens/profile.jpg",
+      "alt": "Perfil do BLDR com níveis, conquistas e consistência",
+      "width": 440,
+      "height": 956
+    },
+    "havok": {
+      "src": "/rebranding/screens/havok.jpg",
+      "alt": "Conversa do HAVOK sobre treino e recuperação",
+      "width": 440,
+      "height": 956
+    },
+    "sports": {
+      "src": "/rebranding/screens/sports.jpg",
+      "alt": "Sports Hub do BLDR com corrida, timers e atividades",
+      "width": 440,
+      "height": 956
+    },
+    "community": {
+      "src": "/rebranding/screens/community.jpg",
+      "alt": "Comunidade BLDR com publicações de treinos e atividades",
+      "width": 440,
+      "height": 956
+    }
+  },
+  "features": {
+    "workout": {
+      "label": "SEU TREINO DE HOJE",
+      "caption": "Seu treino e sua semana, no mesmo lugar."
+    },
+    "nutrition": {
+      "label": "ALIMENTAÇÃO EM PERSPECTIVA",
+      "caption": "Calorias, macros e qualidade da dieta em uma visão."
+    },
+    "progress": {
+      "label": "SEU HISTÓRICO MOSTRA O CAMINHO",
+      "caption": "Compare períodos e reconheça os seus avanços."
+    }
+  },
+  "copy": {
+    "construa_sua_melhor_versao": "CONSTRUA SUA MELHOR VERSÃO.",
+    "o_aplicativo": "O aplicativo",
+    "havok": "HAVOK",
+    "club": "CLUB",
+    "baixar_o_app": "Baixar o app ↗",
+    "pular_para_o_conteudo": "Pular para o conteúdo",
+    "treino_nutricao_evolucao": "TREINO · NUTRIÇÃO · EVOLUÇÃO",
+    "construa_sua": "Construa sua",
+    "melhor_versao": "melhor versão.",
+    "treinos_nutricao_e_progresso_conectados_para": "Treinos, nutrição e progresso conectados para transformar sua constância em evolução.",
+    "comecar_gratuitamente": "Começar gratuitamente",
+    "conhecer_o_aplicativo": "Conhecer o aplicativo ↓",
+    "ios_e_android_voce_comeca_no": "iOS E ANDROID · VOCÊ COMEÇA NO SEU RITMO.",
+    "o_plano_e_seu": "O PLANO É SEU.",
+    "separador": "✳",
+    "a_constancia_e_sua": "A CONSTÂNCIA É SUA.",
+    "a_evolucao_tambem": "A EVOLUÇÃO TAMBÉM.",
+    "sua_rotina_com_mais_clareza": "SUA ROTINA, COM MAIS CLAREZA",
+    "saiba_o_que_fazer": "Saiba o que fazer.",
+    "veja_o_que_mudou": "Veja o que mudou.",
+    "planejamento_registro_e_historico_conectados_para": "Planejamento, registro e histórico conectados para você construir o próximo passo.",
+    "texto_01_treinos": "01 / TREINOS",
+    "chegue_para_treinar_com_um_plano": "Chegue para treinar com um plano.",
+    "organize_sua_semana_e_encontre_o": "Organize sua semana e encontre o treino de hoje sem se perder na rotina.",
+    "texto_02_nutricao": "02 / NUTRIÇÃO",
+    "entenda_como_foi_sua_alimentacao": "Entenda como foi sua alimentação.",
+    "acompanhe_refeicoes_calorias_macros_e_agua": "Acompanhe refeições, calorias, macros e água ao longo do dia.",
+    "texto_03_progresso": "03 / PROGRESSO",
+    "compare_seu_desempenho_ao_longo_do": "Compare seu desempenho ao longo do tempo.",
+    "veja_volume_de_treino_recordes_e": "Veja volume de treino, recordes e consistência para reconhecer sua evolução.",
+    "seu_treino_de_hoje": "SEU TREINO DE HOJE",
+    "bldr": "BLDR ↗",
+    "seu_treino_e_sua_semana_no": "Seu treino e sua semana, no mesmo lugar.",
+    "sua_jornada_ganha_forma": "SUA JORNADA GANHA FORMA",
+    "cada_dia_conta": "CADA DIA CONTA",
+    "performance": "Performance",
+    "e_um_jogo": "é um jogo.",
+    "treinos_registrados_viram_historia_niveis_conquistas": "Treinos registrados viram história. Níveis, conquistas e sequências de dias dão forma à sua constância.",
+    "voce_acompanha_o_caminho_que_ja": "Você acompanha o caminho que já construiu — e encontra um motivo para continuar.",
+    "um_dia_de_cada_vez": "Um dia de cada vez.",
+    "inteligencia_com_contexto": "INTELIGÊNCIA COM CONTEXTO",
+    "seus_dados": "Seus dados.",
+    "uma_conversa": "Uma conversa.",
+    "havok_2": "HAVOK.",
+    "leve_suas_duvidas_sobre_treino_e": "Leve suas dúvidas sobre treino e rotina para uma conversa que conecta as informações da sua jornada.",
+    "estou_pronto_para_treinar_pesado_hoje": "“Estou pronto para treinar pesado hoje?”",
+    "uma_pergunta_simples_pode_abrir_espaco": "Uma pergunta simples pode abrir espaço para entender treino, descanso e evolução em conjunto.",
+    "sua_vida_em_movimento": "SUA VIDA EM MOVIMENTO",
+    "alem_da_academia": "Além da academia.",
+    "ao_lado_de_outras_pessoas": "Ao lado de outras pessoas.",
+    "seu_esporte_tambem_faz_parte": "Seu esporte também faz parte.",
+    "encontre_corrida_caminhada_ciclismo_timers_e": "Encontre corrida, caminhada, ciclismo, timers e registros das suas atividades no Sports Hub.",
+    "compartilhe_o_que_voce_constroi": "Compartilhe o que você constrói.",
+    "publique_treinos_e_avancos_acompanhe_outras": "Publique treinos e avanços, acompanhe outras jornadas e encontre sua comunidade.",
+    "bldr_club": "BLDR CLUB",
+    "mais_recursos": "Mais recursos.",
+    "mais_caminhos_para_evoluir": "Mais caminhos para evoluir.",
+    "amplie_sua_experiencia_com_inteligencia_ferramentas": "Amplie sua experiência com inteligência, ferramentas e acompanhamento da sua evolução.",
+    "explorar_o_club_no_app": "Explorar o CLUB no app",
+    "consulte_os_planos_e_os_recursos": "Consulte os planos e os recursos incluídos no aplicativo.",
+    "havok_e_chef_ia": "HAVOK e Chef IA",
+    "apoio_para_explorar_treinos_e_ideias": "Apoio para explorar treinos e ideias de refeições.",
+    "esportes_e_corrida": "Esportes e corrida",
+    "mais_ferramentas_para_acompanhar_suas_atividades": "Mais ferramentas para acompanhar suas atividades.",
+    "biblioteca_de_treinos": "Biblioteca de treinos",
+    "mais_opcoes_para_planejar_a_sua": "Mais opções para planejar a sua rotina.",
+    "analises_da_sua_evolucao": "Análises da sua evolução",
+    "mais_detalhes_para_acompanhar_o_caminho": "Mais detalhes para acompanhar o caminho percorrido.",
+    "antes_do_primeiro_passo": "ANTES DO PRIMEIRO PASSO",
+    "ficou_alguma": "Ficou alguma",
+    "duvida": "dúvida?",
+    "preciso_assinar_para_comecar": "Preciso assinar para começar?",
+    "voce_pode_comecar_gratuitamente_o_bldr": "Você pode começar gratuitamente. O BLDR CLUB amplia os recursos disponíveis; veja os detalhes dos planos no aplicativo.",
+    "o_bldr_e_so_para_quem": "O BLDR é só para quem faz musculação?",
+    "o_aplicativo_reune_treinos_nutricao_progresso": "O aplicativo reúne treinos, nutrição, progresso e um espaço dedicado a esportes. Explore as ferramentas para a sua rotina.",
+    "o_havok_substitui_acompanhamento_profissional": "O HAVOK substitui acompanhamento profissional?",
+    "nao_havok_e_uma_inteligencia_artificial": "Não. HAVOK é uma inteligência artificial e pode cometer erros. Suas respostas não substituem a orientação individual de profissionais.",
+    "onde_posso_baixar_o_aplicativo": "Onde posso baixar o aplicativo?",
+    "o_bldr_esta_disponivel_para_ios": "O BLDR está disponível para iOS e Android. Use os botões abaixo para acessar a loja do seu celular.",
+    "o_proximo_passo_e_seu": "O PRÓXIMO PASSO É SEU.",
+    "comece_com_um_dia": "Comece com um dia.",
+    "construa_a_sua_evolucao": "Construa a sua evolução.",
+    "seu_treino_sua_rotina_sua_proxima": "Seu treino. Sua rotina. Sua próxima conquista.",
+    "baixar_na": "BAIXAR NA",
+    "app_store": "App Store",
+    "disponivel_no": "DISPONÍVEL NO",
+    "google_play": "Google Play",
+    "bldr_construa_sua_melhor_versao": "BLDR. CONSTRUA SUA MELHOR VERSÃO.",
+    "texto_2026_bldr": "© 2026 BLDR",
+    "sobre_o_bldr": "Sobre o BLDR",
+    "seguranca": "Segurança",
+    "termos": "Termos",
+    "privacidade": "Privacidade",
+    "contato": "Contato ↗"
+  }
+}

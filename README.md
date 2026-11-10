@@ -1,3 +1,11 @@
+# BLDR — Site institucional
+
+## Editar a nova home
+
+Consulte o [guia de edição da home](docs/EDITAR-HOME.md) para trocar telas, logo, textos e links. As imagens ficam em [`public/rebranding/screens`](public/rebranding/screens) e a configuração em [`src/content/home.json`](src/content/home.json).
+
+---
+
 # Welcome to your Lovable project
 
 ## Project info
